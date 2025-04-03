@@ -1,12 +1,90 @@
-# React + Vite
+# Feature Flag in React using useContext Hook
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project demonstrates how to implement feature flags in a React application using the `useContext` hook. Feature flags allow for selective feature toggling based on user types, such as "free" and "premium" users.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Feature flag management using React Context API
+- Toggle features dynamically based on user type
+- Example features include:
+  - Dark Mode
+  - Chat
+  - Audio Chat
+  - Video Chat
+- Simple UI with toggle switches
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Steps
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-repo/feature-flag-react.git
+   cd feature-flag-react
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+   or
+   ```sh
+   yarn install
+   ```
+3. Start the development server:
+   ```sh
+   npm run dev
+   ```
+   or
+   ```sh
+   yarn dev
+   ```
+4. Open `http://localhost:5173` in your browser (if using Vite).
+
+## Project Structure
+
+```
+feature-flag-react/
+│── public/
+│── src/
+│   ├── components/
+│   │   ├── FeaturesFlagProvider.jsx
+│   │   ├── Feature.jsx
+│   ├── App.jsx
+│   ├── App.css
+│── .gitignore
+│── package.json
+│── vite.config.js
+│── README.md
+```
+
+## How It Works
+
+- `FeaturesFlagProvider.jsx`: Provides the feature flag context.
+- `Feature.jsx`: Checks if a feature is enabled for the current user type.
+- Users can switch between "Free" and "Premium" plans to see different features enabled or disabled.
+
+## Usage Example
+
+```jsx
+<FeaturesFlagProvider userType={userType}>
+  <Feature name="darkMode">
+    <label className="toggle-switch">
+      <input type="checkbox" />
+      <span className="slider"></span>
+    </label>
+  </Feature>
+</FeaturesFlagProvider>
+```
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests for improvements!
